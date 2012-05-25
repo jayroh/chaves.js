@@ -7,25 +7,95 @@
       self = $.fn.chaves;
       options = $.extend({}, self.default_options, options);
       return $(this).each(function(i, el) {
-        self.init(el, options);
-        if (options.log) {
-          return self.log(el);
-        }
+        return self.init(el, options);
       });
     }
   });
 
   $.extend($.fn.chaves, {
+    version: '0.1.0',
     default_options: {
+      activeClass: 'active',
+      bindings: [],
+      childSelector: '> *',
       className: 'jquery-chaves',
       enableUpDown: false,
-      log: true
+      helpModalClass: 'jquery-chaves-help',
+      scope: 'all',
+      searchSelector: '.search,\
+                     #search,\
+                     input[type="text"][value*="earch"],\
+                     input[type="text"][placeholder*="earch"]'
     },
     init: function(el, options) {
-      return el.className = options.className;
+      var addToHelp, downkeys, goDown, goUp, hideHelp, register_all_bindings, searchFocus, showHelp, upkeys,
+        _this = this;
+      this.options = options;
+      this.bindings = $.extend([], options.bindings);
+      this.el = $(el).addClass(options.className);
+      this.children = this.el.find(options.childSelector);
+      this.active = this.children.first().addClass(options.activeClass);
+      this.help = this.findOrCreateHelp();
+      downkeys = 'j';
+      upkeys = 'k';
+      if (options.enableUpDown) {
+        downkeys += ", down";
+        upkeys += ", up";
+      }
+      register_all_bindings = function() {
+        var binding, _i, _len, _ref, _results;
+        _ref = _this.bindings;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          binding = _ref[_i];
+          key(binding[0], _this.options.scope, binding[2]);
+          _results.push(addToHelp(binding[0], binding[1]));
+        }
+        return _results;
+      };
+      addToHelp = function(keys, description) {
+        return _this.help.find('dl').append("<dt>" + keys + "</dt><dd>" + description + "</dd>");
+      };
+      goUp = function() {
+        var prev;
+        if ((_this.active.prev().length)) {
+          prev = _this.active.prev().addClass(_this.options.activeClass);
+          _this.active.removeClass(_this.options.activeClass);
+          return _this.active = prev;
+        }
+      };
+      goDown = function() {
+        var next;
+        if ((_this.active.next().length)) {
+          next = _this.active.next().addClass(_this.options.activeClass);
+          _this.active.removeClass(_this.options.activeClass);
+          return _this.active = next;
+        }
+      };
+      showHelp = function() {
+        return _this.help.toggleClass('visible');
+      };
+      hideHelp = function() {
+        return _this.help.removeClass('visible');
+      };
+      searchFocus = function() {
+        return _this.search = $(_this.options.searchSelector).focus();
+      };
+      this.bindings.push([upkeys, 'Move selection up.', goUp]);
+      this.bindings.push([downkeys, 'Move selection down.', goDown]);
+      this.bindings.push(['shift+/', 'Toggle help dialog.', showHelp]);
+      this.bindings.push(['esc, escape', 'Close help dialog.', hideHelp]);
+      this.bindings.push(['/', 'Focus on search.', searchFocus]);
+      return register_all_bindings();
     },
-    log: function(msg) {
-      return typeof console !== "undefined" && console !== null ? console.log(msg) : void 0;
+    findOrCreateHelp: function() {
+      var help, helpSelector;
+      helpSelector = "." + this.options.helpModalClass;
+      if (!$(helpSelector).length) {
+        $('body').append("<div class=" + this.options.helpModalClass + "></div>");
+        help = $(helpSelector).append('<h3>Keyboard Shortcuts</h3><dl></dl>');
+      }
+      return $(helpSelector);
     }
   });
 

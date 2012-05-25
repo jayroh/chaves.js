@@ -3,7 +3,7 @@ $('#list-container').chaves()
 // Defaults:
 // jk would move up and down '#list-container > *'
 // active elements would have the 'active' class
-// '?' would add a 'visible' class to $('.help')
+// '?' would add a 'visible' class to $('.jquery-chaves-help')
 // up and down keys would NOT be used in addition to jk unless told to
 // '/' would focus on $('input.search,input#search')
 // if you build a hash in helpGroups it would use that to build the help div
@@ -15,12 +15,12 @@ $('#list-container').chaves({
   activeClass: 'active',
   helpModalSelector: '.help',
   enableUpDown: false,
-  actionRegistry: {
-    's': my_s_event,
-    '?': my_help_event,
-    '↑': my_up_event,
-    '↓': my_down_event
-  },
+  actionRegistry: [
+    ['n',       'compose a new message', function(){ /* do stuff */ }],
+    ['shift+/', 'open help dialog',      function(){ /* do stuff */ }],
+    ['↑',       'move up',               function(){ /* do stuff */ }],
+    ['↓',       'move down',             function(){ /* do stuff */ }]
+  ],
   helpGroups: {
     'Site Wide Shortcuts': {
       's':'Focus site search',
@@ -34,11 +34,3 @@ $('#list-container').chaves({
     }
   }
 });
-
-my_s_event: function(){ alert('S!'); }
-
-my_help_event: function(){ alert('HALP!'); }
-
-my_up_event: function(){ alert('SUP!?'); }
-
-my_down_event: function(){ alert('GETDOWN!'); }

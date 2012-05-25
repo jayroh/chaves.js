@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Smoke Testing</title>
+  <style type="text/css" media="screen">
+    ul { list-style:none; clear: both; }
+    ul li { padding: 10px; overflow: hidden; margin-left: 5px; }
+    ul li img { float: left; margin-right: 10px; } 
+    .active { border-left: solid 5px #99997A; background: #FFC; margin-left: 0px;  }
+    .active a { color: #99997A; }
+    #search {
+      float: right;
+      clear: both;
+      font-size: 18px;
+      margin: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <input id='search' placeholder="Search" />
+
+  <ul id="messages">
+    <li><img src="http://lorempixel.com/64/64/" />Across the <a href="#">Thames</a>, except just where the boats landed, everything was quiet, in vivid contrast with the Surrey side</li>
+    <li><img src="http://lorempixel.com/64/64/" />The people who landed there from the <a href="#">boats</a> went tramping off down the lane</li>
+    <li><img src="http://lorempixel.com/64/64/" />The big ferryboat had just made a <a href="#">journey</a></li>
+    <li><img src="http://lorempixel.com/64/64/" />Three or four soldiers stood on the lawn of the inn, staring and jesting at the <a href="#">fugitives</a>, without offering to help</li>
+    <li><img src="http://lorempixel.com/64/64/" />The <a href="#">inn</a> was closed, as it was now within prohibited hours</li>
+  </ul>
+
+
+  <script type="text/javascript" src="../lib/jquery-1.7.2.js"></script>
+  <script type="text/javascript" src="../lib/keymaster.js"></script>
+  <script type="text/javascript" src="../src/jquery.chaves.js"></script>
+  <script type="text/javascript" src="js/jquery.transit.js"></script>
+  <script>
+    $('#messages').chaves();
+  </script>
+</body>
+</html>
