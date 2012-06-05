@@ -1,0 +1,85 @@
+# chaves.js
+
+### TLDR
+
+The code can be downloaded [here](https://raw.github.com/jayroh/chaves.js/master/src/jquery.chaves.js) -- coffeescript is [here](https://raw.github.com/jayroh/chaves.js/master/src/jquery.chaves.coffee).
+
+Clone and open demo/1.html or demo/2.html to view this applied.
+
+### The Spiel
+
+As developers we're trained for efficiency and keyboard shortcuts are a strand in the hacker DNA. Don't waste time reaching for that mouse. It's unfortunate that so many apps and/or websites don't take that into consideration as they build their software. Chaves.js is my attempt at making it easier and faster to integrate the niceties we get from sites and apps like Gmail or Github.
+
+### Features
+
+* Will build a hidden "help" dialog (unless it finds one with the class `jquery-chaves-help`) right before `</body>`. The contents of the dialog are built from the registered key bindings and descriptions.
+* j & k will set focus to the immediate children of your selector
+* / will focus on your search field, if it exists
+* ? will show your help div/el (by toggling a `visible` class)
+* Enter will trigger a click event on the first link found in your active element.
+* ... AND MORE!
+
+### Setup
+
+The dependencies are jQuery (of course) and Thomas Fuch's [Keymaster](https://raw.github.com/madrobby/keymaster/master/keymaster.js). Make sure they're loaded before you get down to business.
+
+Default:
+
+```html
+    <ul id="key-me">
+      <li>An honest man is always a child. 
+        - <a href="http://en.wikipedia.org/wiki/Socrates" target="_blank">Socrates</a></li>
+      <li>Any man may easily do harm, but not every man can do good to another. 
+        - <a href="http://en.wikipedia.org/wiki/Plato" target="_blank">Plato</a></li>
+      <li>A waffle is like a pancake with a syrup trap. 
+        - <a href="http://en.wikipedia.org/wiki/Mitch_Hedburg" target="_blank">Mitch Hedberg</a></li>
+    </ul>
+
+    <script src="/javascript/jquery-1.7.2.js"></script>
+    <script src="/javascript/keymaster.js"></script>
+    <script src="/javascript/jquery.chaves.js"></script>
+    <script>
+      $('#key-me').chaves();
+    </script>
+```
+
+With some custom options:
+
+```html
+    <div id="key-me">
+      <div>An honest man is always a child. 
+        - <a href="http://en.wikipedia.org/wiki/Socrates" target="_blank">Socrates</a></div>
+      <div>Any man may easily do harm, but not every man can do good to another. 
+        - <a href="http://en.wikipedia.org/wiki/Plato" target="_blank">Plato</a></div>
+      <div>A waffle is like a pancake with a syrup trap. 
+        - <a href="http://en.wikipedia.org/wiki/Mitch_Hedburg" target="_blank">Mitch Hedberg</a></div>
+    </div>
+
+    <script src="/javascript/jquery-1.7.2.js"></script>
+    <script src="/javascript/keymaster.js"></script>
+    <script src="/javascript/jquery.chaves.js"></script>
+    <script>
+      $('#key-me').chaves({
+        className: 'keys',                                // 'keys' instead of 'jquery-chaves' on init
+        childSelector: '> div',                           // cycle through '#key-me > div' instead of '#key-me > *'
+        activeClass: 'on',                                // 'on' instead of 'active' for the focused element
+        enableUpDown: true,                               // in addition to j and k, use the up and down keys
+        helpModalClass: 'help'                            // 'help' class instead of 'jquery-chaves-help' on help div
+        bindings: [                                       // your custom key bindings
+          ['n', 'Alert n!', function(){ alert('You pressed n!') }],
+          ['p', 'Alert p!', function(){ alert('You pressed p!') }] 
+        ]
+      });
+    </script>
+```
+
+
+### Thanks!
+
+* Google, Github and VIM for inspiration
+* Thomas Fuchs for his excellent work on [keymaster.js](https://github.com/madrobby/keymaster)
+* [TheDudeWithTheThing](https://github.com/TheDudeWithTheThing) for feedback.
+
+### Changelog
+
+* 0.1.0 - Initial release
