@@ -1,16 +1,18 @@
 # chaves.js
 
-### TLDR
+## TLDR
 
 The code can be downloaded [here](https://raw.github.com/jayroh/chaves.js/master/src/jquery.chaves.js) -- coffeescript is [here](https://raw.github.com/jayroh/chaves.js/master/src/jquery.chaves.coffee).
 
-Clone and open demo/1.html or demo/2.html to view this applied.
+Clone and open demo/1.html or demo/2.html to view some examples (stock and custom behavior, respectively).
 
-### The Spiel
+Wtf is a "chaves"? **Chaves** is [portuguese for "keys"](http://translate.google.com/#pt%7Cen%7Cchaves).
+
+## The Spiel
 
 As developers we're trained for efficiency and keyboard shortcuts are a strand in the hacker DNA. Don't waste time reaching for that mouse. It's unfortunate that so many apps and/or websites don't take that into consideration as they build their software. Chaves.js is my attempt at making it easier and faster to integrate the niceties we get from sites and apps like Gmail or Github.
 
-### Features
+## Features
 
 * Will build a hidden "help" dialog (unless it finds one with the class `jquery-chaves-help`) right before `</body>`. The contents of the dialog are built from the registered key bindings and descriptions.
 * j & k will set focus to the immediate children of your selector
@@ -19,7 +21,7 @@ As developers we're trained for efficiency and keyboard shortcuts are a strand i
 * Enter will trigger a click event on the first link found in your active element.
 * ... AND MORE!
 
-### Setup
+## Setup
 
 The dependencies are jQuery (of course) and Thomas Fuch's [Keymaster](https://raw.github.com/madrobby/keymaster/master/keymaster.js). Make sure they're loaded before you get down to business.
 
@@ -74,12 +76,12 @@ With some custom options:
 ```
 
 
-### Thanks!
+## Thanks!
 
 * Google, Github and VIM for inspiration
 * Thomas Fuchs for his excellent work on [keymaster.js](https://github.com/madrobby/keymaster)
 * [TheDudeWithTheThing](https://github.com/TheDudeWithTheThing) for feedback.
 
-### Changelog
+## Changelog
 
 * 0.1.0 - Initial release
