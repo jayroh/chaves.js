@@ -21,6 +21,7 @@
       className: 'jquery-chaves',
       enableUpDown: false,
       helpModalClass: 'jquery-chaves-help',
+      linkSelector: 'a:first',
       scope: 'all',
       searchSelector: '.search,\
                      #search,\
@@ -28,7 +29,7 @@
                      input[type="text"][placeholder*="earch"]'
     },
     init: function(el, options) {
-      var addToHelp, downkeys, goDown, goUp, hideHelp, register_all_bindings, searchFocus, showHelp, upkeys,
+      var addToHelp, clickActive, downkeys, goDown, goUp, hideHelp, register_all_bindings, searchFocus, showHelp, upkeys,
         _this = this;
       this.options = options;
       this.bindings = $.extend([], options.bindings);
@@ -79,13 +80,26 @@
         return _this.help.removeClass('visible');
       };
       searchFocus = function() {
-        return _this.search = $(_this.options.searchSelector).focus();
+        _this.search = $(_this.options.searchSelector);
+        return window.setTimeout((function() {
+          return this.search.focus();
+        }), 10);
+      };
+      clickActive = function() {
+        var link;
+        link = _this.active.find(_this.options.linkSelector);
+        if (link.trigger('click').attr('target') === '_blank') {
+          return window.open(link.attr('href'), 'popped');
+        } else {
+          return window.location.href = link.attr('href');
+        }
       };
       this.bindings.push([upkeys, 'Move selection up.', goUp]);
       this.bindings.push([downkeys, 'Move selection down.', goDown]);
       this.bindings.push(['shift+/', 'Toggle help dialog.', showHelp]);
       this.bindings.push(['esc, escape', 'Close help dialog.', hideHelp]);
       this.bindings.push(['/', 'Focus on search.', searchFocus]);
+      this.bindings.push(['enter', 'Open/click element.', clickActive]);
       return register_all_bindings();
     },
     findOrCreateHelp: function() {

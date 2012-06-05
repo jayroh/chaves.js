@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Smoke Testing</title>
+  <title>Standard demo</title>
   <style type="text/css" media="screen">
     ul { list-style:none; clear: both; }
     ul li { padding: 10px; overflow: hidden; margin-left: 5px; }
@@ -10,11 +10,41 @@
     .active { border-left: solid 5px #99997A; background: #FFC; margin-left: 0px;  }
     .active a { color: #99997A; }
     #search {
-      float: right;
       clear: both;
       font-size: 18px;
       margin: 10px;
       padding: 5px;
+    }
+    .jquery-chaves-help {
+      border: solid 1px red;
+      width: 200px;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      padding: 5px 20px;
+      margin-left: -110px;
+      margin-top: -200px;
+      background: white;
+      display: none;
+    }
+    .jquery-chaves-help  h3 { }
+    .jquery-chaves-help dt {
+      display: block;
+      float: left;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      width: 60px;
+      text-align: center;
+    }
+    .jquery-chaves-help dd {
+      display: block;
+      margin: 0px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .jquery-chaves-help.visible {
+      display: block;
     }
   </style>
 </head>
@@ -23,11 +53,11 @@
   <input id='search' placeholder="Search" />
 
   <ul id="messages">
-    <li><img src="http://lorempixel.com/64/64/" />Across the <a href="#">Thames</a>, except just where the boats landed, everything was quiet, in vivid contrast with the Surrey side</li>
-    <li><img src="http://lorempixel.com/64/64/" />The people who landed there from the <a href="#">boats</a> went tramping off down the lane</li>
-    <li><img src="http://lorempixel.com/64/64/" />The big ferryboat had just made a <a href="#">journey</a></li>
-    <li><img src="http://lorempixel.com/64/64/" />Three or four soldiers stood on the lawn of the inn, staring and jesting at the <a href="#">fugitives</a>, without offering to help</li>
-    <li><img src="http://lorempixel.com/64/64/" />The <a href="#">inn</a> was closed, as it was now within prohibited hours</li>
+    <li><img src="http://lorempixel.com/64/64/" />Across the <a href="http://en.wikipedia.org/wiki/River_Thames">Thames</a>, except just where the boats landed, everything was quiet, in vivid contrast with the Surrey side</li>
+    <li><img src="http://lorempixel.com/64/64/" />The people who landed there from the <a href="http://www.youtube.com/watch?v=avaSdC0QOUM" target="_blank">boats</a> went tramping off down the lane</li>
+    <li><img src="http://lorempixel.com/64/64/" />The big ferryboat had just made a <a href="http://www.youtube.com/watch?v=atxUuldUcfI">journey</a></li>
+    <li><img src="http://lorempixel.com/64/64/" />Three or four soldiers stood on the lawn of the inn, staring and jesting at the <a href="https://github.com/tpope/vim-fugitive">fugitives</a>, without offering to help</li>
+    <li><img src="http://lorempixel.com/64/64/" />The inn was closed, as it was now within prohibited hours</li>
   </ul>
 
 

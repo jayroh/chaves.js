@@ -1,0 +1,2 @@
+window.noDelaySearchFocus = ->
+  $('#search').focus()

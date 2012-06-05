@@ -5,7 +5,9 @@
     return describe("by default", function() {
       beforeEach(function() {
         loadFixtures('default-list.html');
-        this.list = $('#list').chaves();
+        this.list = $('#list').chaves({
+          bindings: [['/', 'Focus on search', noDelaySearchFocus]]
+        });
         this.children = this.list.children();
         this.help = $('.jquery-chaves-help');
         return this.search = $('#search');
@@ -80,6 +82,13 @@
             }
             return expect(this.children.first()).toHaveClass('active');
           });
+        });
+      });
+      describe("when 'enter' is pressed", function() {
+        return it("triggers `click` on the first link in '.active'", function() {
+          spyOnEvent($('.active a'), 'click');
+          key.triggerKey('enter');
+          return expect('click').toHaveBeenTriggeredOn($('.active a'));
         });
       });
       describe("after pressing '?'", function() {

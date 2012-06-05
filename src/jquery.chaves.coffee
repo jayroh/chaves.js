@@ -15,6 +15,7 @@ $.extend $.fn.chaves,
     className: 'jquery-chaves'
     enableUpDown: false
     helpModalClass: 'jquery-chaves-help'
+    linkSelector: 'a:first'
     scope: 'all'
     searchSelector: '.search,
                      #search,
@@ -33,14 +34,14 @@ $.extend $.fn.chaves,
     if options.enableUpDown
       downkeys  += ", down"
       upkeys    += ", up"
-    
+
     # *************************************************************************
 
     register_all_bindings = =>
       for binding in @bindings
         key binding[0], @options.scope, binding[2]
         addToHelp binding[0], binding[1]
-    
+
     addToHelp = (keys, description) =>
       @help.find('dl').append("<dt>#{keys}</dt><dd>#{description}</dd>")
 
@@ -65,7 +66,15 @@ $.extend $.fn.chaves,
       @help.removeClass('visible')
 
     searchFocus = =>
-      @search = $(@options.searchSelector).focus()
+      @search = $(@options.searchSelector)
+      window.setTimeout( (-> @search.focus()), 10 )
+
+    clickActive = =>
+      link = @active.find(@options.linkSelector)
+      if link.trigger('click').attr('target') == '_blank'
+        window.open link.attr('href'), 'popped'
+      else
+        window.location.href = link.attr('href')
 
     # *************************************************************************
 
@@ -74,6 +83,7 @@ $.extend $.fn.chaves,
     @bindings.push [ 'shift+/',     'Toggle help dialog.',  showHelp    ]
     @bindings.push [ 'esc, escape', 'Close help dialog.',   hideHelp    ]
     @bindings.push [ '/',           'Focus on search.',     searchFocus ]
+    @bindings.push [ 'enter',       'Open/click element.',  clickActive ]
 
     register_all_bindings()
 

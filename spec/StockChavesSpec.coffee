@@ -4,7 +4,9 @@ describe "Chaves", ->
 
     beforeEach ->
       loadFixtures('default-list.html')
-      @list     = $('#list').chaves()
+
+      @list     = $('#list').chaves
+        bindings : [['/', 'Focus on search', noDelaySearchFocus]]
       @children = @list.children()
       @help     = $('.jquery-chaves-help')
       @search   = $('#search')
@@ -75,6 +77,13 @@ describe "Chaves", ->
         it "keeps 'active' on the first child", ->
           key.triggerKey('k') for [1..10]
           expect(@children.first()).toHaveClass('active')
+
+    describe "when 'enter' is pressed", ->
+
+      it "triggers `click` on the first link in '.active'", ->
+        spyOnEvent( $('.active a'), 'click' )
+        key.triggerKey('enter')
+        expect('click').toHaveBeenTriggeredOn( $('.active a') )
 
     describe "after pressing '?'", ->
 
