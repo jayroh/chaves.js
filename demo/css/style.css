@@ -1,0 +1,11 @@
+ul { list-style:none; clear: both; }
+ul li { padding: 10px; overflow: hidden; margin-left: 5px; }
+ul li img { float: left; margin-right: 10px; } 
+.active { border-left: solid 5px #99997A; background: #FFC; margin-left: 0px;  }
+.active a { color: #99997A; }
+#search {
+  clear: both;
+  font-size: 18px;
+  margin: 10px;
+  padding: 5px;
+}
