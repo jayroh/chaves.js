@@ -4,7 +4,7 @@
 
 The code can be downloaded [here](https://raw.github.com/jayroh/chaves.js/master/src/jquery.chaves.js) -- coffeescript is [here](https://raw.github.com/jayroh/chaves.js/master/src/jquery.chaves.coffee).
 
-Clone and open demo/1.html or demo/2.html to view some examples (stock and custom behavior, respectively).
+Clone and open demo/defaults.html or demo/2.html to view some examples (stock and custom behavior, respectively).
 
 Wtf is a "chaves"? **Chaves** is [portuguese for "keys"](http://translate.google.com/#pt%7Cen%7Cchaves).
 
