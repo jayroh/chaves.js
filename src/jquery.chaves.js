@@ -82,7 +82,7 @@
       searchFocus = function() {
         _this.search = $(_this.options.searchSelector);
         return window.setTimeout((function() {
-          return this.search.focus();
+          return _this.search.focus();
         }), 10);
       };
       clickActive = function() {

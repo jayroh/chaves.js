@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Custom Demo</title>
+  <link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/gmail.css" type="text/css">
+</head>
+<body>
+
+  <aside>
+    <script src='http://pastie.org/4047740.js'></script>
+  </aside>
+  <section>
+
+    <header>
+      <h1>chaves.js</h1>
+      <nav>
+        <a href='defaults.html'>default demo</a>
+        <a href='custom.html'>custom demo</a>
+        <a href='../SpecRunner.html'>specs</a>
+        <input id='q' name='q' />
+      </nav>
+    </header>
+
+    <article id='stuff'>
+      <p>
+        The options, with defaults:
+
+        <code class='blocked'>
+activeClass: 'active'                 # class set on the currently element
+bindings: []                          # registry of key-bindings:
+                                      #   [
+                                      #     ['<key>', '<description>', function(){} ],
+                                      #     ['<key>', '<description>', function(){} ]
+                                      #   ]
+className: 'jquery-chaves'            # on init, this class is set on your element
+childSelector: '> *'                  # selector to target your navigable elements
+enableUpDown: false                   # enable the up and down keys along with j/k
+helpModalClass: 'jquery-chaves-help'  # the class-name used for the help modal dialog
+linkSelector: 'a:first'               # selector targeting the link to "click" in 
+                                      #   the active element
+searchSelector: '.search'             # selector targeting the search element
+        </code>
+      </p>
+      <p>
+        Care to contribute? Fork it, test it, hack away and submit a pull request.
+      </p>
+      <p>
+        Remember, <a href='http://twitter.com/jayroh'>I am on twitter</a> if
+        you have any questions, comments, compliments, insults 
+        <small>(why would you do that?)</small>, or have suggestions.
+      </p>
+    </article>
+  </section>
+  <script type='text/javascript' src='../lib/jquery-1.7.2.js'></script>
+  <script type='text/javascript' src='../lib/keymaster.js'></script>
+  <script type='text/javascript' src='../src/jquery.chaves.js'></script>
+  <script>
+    $('#stuff').chaves({
+      activeClass: 'on',
+      bindings: [
+        ['n', 'Alert n!', function(){ alert('You pressed n!'); }],
+        ['p', 'Alert p!', function(){ alert('You pressed p!'); }]
+      ],
+      className: 'keys',
+      childSelector: '> *',
+      enableUpDown: true,
+      searchSelector: '#q'
+    });
+  </script>
+</body>
+</html>

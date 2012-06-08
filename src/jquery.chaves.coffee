@@ -67,7 +67,7 @@ $.extend $.fn.chaves,
 
     searchFocus = =>
       @search = $(@options.searchSelector)
-      window.setTimeout( (-> @search.focus()), 10 )
+      window.setTimeout( (=> @search.focus()), 10 )
 
     clickActive = =>
       link = @active.find(@options.linkSelector)

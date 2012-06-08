@@ -1,11 +1,95 @@
-ul { list-style:none; clear: both; }
-ul li { padding: 10px; overflow: hidden; margin-left: 5px; }
-ul li img { float: left; margin-right: 10px; } 
-.active { border-left: solid 5px #99997A; background: #FFC; margin-left: 0px;  }
-.active a { color: #99997A; }
-#search {
-  clear: both;
-  font-size: 18px;
-  margin: 10px;
+body {
+  background: #F7F7F7;
+}
+
+aside {
+  font-size: 12px;
+  position: fixed;
+  top: 165px;
+  left: 42px;
+  width: 505px;
+}
+.pastie {
+  background: white;
+}
+.pastie .allcode {
+  padding: 5px 0 !important;
+  overflow: hidden;
+}
+.pastie tr td:first-child {
+  display: none;
+}
+
+section {
+  margin-left: 605px;
+  margin-right: 42px;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+h1 {
+  font-family: 'Belgrano', serif;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 42px;
+  background: white;
+  border-bottom: solid 1px silver;
+  border-right: solid 1px silver;
+}
+
+nav {
+  position: fixed;
+  top: 80px;
+  text-align: right;
+  left: 42px;
+  width: 505px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #D20;
+  text-shadow: 1px 1px 0px white;
+  padding: 10px 15px;
+  display: inline-block;
+}
+nav a:hover {
+  background: #FFF0F0;
+}
+
+#search, #q {
+  display: inline-block;
+  font-size: 12px;
   padding: 5px;
+  margin-left: 20px;
+}
+
+article p {
+  border: solid 1px transparent;
+  line-height: 1.6em;
+  padding: 20px;
+  overflow: hidden;
+}
+
+article p a {
+  text-decoration: none;
+  color: #D20;
+}
+
+article p:hover,
+.active,
+.on {
+  background: white;
+  border-bottom: solid 1px silver;
+  border-right: solid 1px silver;
+}
+
+.active a:first-child,
+.on a:first-child,
+.active a:first-child:visited,
+.on a:first-child:visited {
+  border-bottom: dotted 1px #D20 !important;
+}
+
+code.blocked {
+  display: block;
+  white-space: pre;
 }
