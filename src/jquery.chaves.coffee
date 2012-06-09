@@ -52,12 +52,14 @@ $.extend $.fn.chaves,
         prev = @active.prev().addClass(@options.activeClass)
         @active.removeClass(@options.activeClass)
         @active = prev
+        @readjust(150)
 
     goDown = =>
       if(@active.next().length)
         next = @active.next().addClass(@options.activeClass)
         @active.removeClass(@options.activeClass)
         @active = next
+        @readjust(0)
 
     showHelp = =>
       @help.toggleClass('visible')
@@ -86,6 +88,19 @@ $.extend $.fn.chaves,
     @bindings.push [ 'enter',       'Open/click element.',  clickActive ]
 
     register_all_bindings()
+
+  readjust: (buffer) ->
+    if @elementOutOfViewport(@active[0])
+      top = @active.offset().top - buffer
+      $(window).scrollTop(top).trigger('scroll')
+
+  elementOutOfViewport: (el) ->
+    if el
+      rect = el.getBoundingClientRect()
+      !(rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= window.innerHeight &&
+        rect.right <= window.innerWidth)
 
   findOrCreateHelp: () ->
     helpSelector = ".#{@options.helpModalClass}"

@@ -62,7 +62,8 @@
         if ((_this.active.prev().length)) {
           prev = _this.active.prev().addClass(_this.options.activeClass);
           _this.active.removeClass(_this.options.activeClass);
-          return _this.active = prev;
+          _this.active = prev;
+          return _this.readjust(150);
         }
       };
       goDown = function() {
@@ -70,7 +71,8 @@
         if ((_this.active.next().length)) {
           next = _this.active.next().addClass(_this.options.activeClass);
           _this.active.removeClass(_this.options.activeClass);
-          return _this.active = next;
+          _this.active = next;
+          return _this.readjust(0);
         }
       };
       showHelp = function() {
@@ -101,6 +103,20 @@
       this.bindings.push(['/', 'Focus on search.', searchFocus]);
       this.bindings.push(['enter', 'Open/click element.', clickActive]);
       return register_all_bindings();
+    },
+    readjust: function(buffer) {
+      var top;
+      if (this.elementOutOfViewport(this.active[0])) {
+        top = this.active.offset().top - buffer;
+        return $(window).scrollTop(top).trigger('scroll');
+      }
+    },
+    elementOutOfViewport: function(el) {
+      var rect;
+      if (el) {
+        rect = el.getBoundingClientRect();
+        return !(rect.top >= 0 && rect.left >= 0 && rect.bottom <= window.innerHeight && rect.right <= window.innerWidth);
+      }
     },
     findOrCreateHelp: function() {
       var help, helpSelector;
