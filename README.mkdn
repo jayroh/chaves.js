@@ -19,6 +19,7 @@ As developers we're trained for efficiency and keyboard shortcuts are a strand i
 * / will focus on your search field, if it exists
 * ? will show your help div/el (by toggling a `visible` class)
 * Enter will trigger a click event on the first link found in your active element.
+* Available as a rubygem @ [phlipper/chaves-rails](https://github.com/phlipper/chaves-rails). Much thanks to [Phil Cohen](https://github.com/phlipper)
 * ... AND MORE!
 
 ## Setup
