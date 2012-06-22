@@ -86,3 +86,17 @@ With some custom options:
 ## Changelog
 
 * 0.1.0 - Initial release
+
+## License
+
+**Chaves.js**
+
+* Dual licensed under the MIT and GPL licenses.
+* Copyright (c) 2012 Joel Oliveira
+* https://github.com/jayroh/chaves.js
+
+**keymaster**
+
+* Freely distributable and licensed under the [MIT license](https://github.com/madrobby/keymaster).
+* Copyright (c) 2011 Thomas Fuchs
+* https://github.com/madrobby/keymaster
