@@ -36,6 +36,7 @@
       this.el = $(el).addClass(options.className);
       this.children = this.el.find(options.childSelector);
       this.active = this.children.first().addClass(options.activeClass);
+      this.index = 0;
       this.help = this.findOrCreateHelp();
       downkeys = 'j';
       upkeys = 'k';
@@ -59,8 +60,9 @@
       };
       goUp = function() {
         var prev;
-        if ((_this.active.prev().length)) {
-          prev = _this.active.prev().addClass(_this.options.activeClass);
+        if (_this.index > 0) {
+          _this.index = _this.index - 1;
+          prev = $(_this.children[_this.index]).addClass(_this.options.activeClass);
           _this.active.removeClass(_this.options.activeClass);
           _this.active = prev;
           return _this.readjust(150);
@@ -68,8 +70,9 @@
       };
       goDown = function() {
         var next;
-        if ((_this.active.next().length)) {
-          next = _this.active.next().addClass(_this.options.activeClass);
+        if (_this.index < _this.children.length - 1) {
+          _this.index = _this.index + 1;
+          next = $(_this.children[_this.index]).addClass(_this.options.activeClass);
           _this.active.removeClass(_this.options.activeClass);
           _this.active = next;
           return _this.readjust(0);

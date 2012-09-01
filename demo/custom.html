@@ -25,39 +25,43 @@
     </header>
 
     <article id='stuff'>
-      <p>
-        The options, with defaults:
+      <div class='wrapped'>
+        <p>
+          The options, with defaults:
 
-        <code class='blocked'>
-activeClass: 'active'                 # class set on the currently element
-bindings: []                          # registry of key-bindings:
-                                      #   [
-                                      #     ['<key>', '<description>', function(){} ],
-                                      #     ['<key>', '<description>', function(){} ]
-                                      #   ]
-className: 'jquery-chaves'            # on init, this class is set on your element
-childSelector: '> *'                  # selector to target your navigable elements
-enableUpDown: false                   # enable the up and down keys along with j/k
-helpModalClass: 'jquery-chaves-help'  # the class-name used for the help modal dialog
-linkSelector: 'a:first'               # selector targeting the link to "click" in 
-                                      #   the active element
-searchSelector: '.search'             # selector targeting the search element
-        </code>
-      </p>
-      <p>
-        Care to contribute? Fork it, test it, hack away and submit a pull request.
-      </p>
-      <p>
-        Remember, <a href='http://twitter.com/jayroh'>I am on twitter</a> if
-        you have any questions, comments, compliments, insults 
-        <small>(why would you do that?)</small>, or have suggestions.
-      </p>
+          <code class='blocked'>
+  activeClass: 'active'                 # class set on the currently element
+  bindings: []                          # registry of key-bindings:
+                                        #   [
+                                        #     ['<key>', '<description>', function(){} ],
+                                        #     ['<key>', '<description>', function(){} ]
+                                        #   ]
+  className: 'jquery-chaves'            # on init, this class is set on your element
+  childSelector: '> *'                  # selector to target your navigable elements
+  enableUpDown: false                   # enable the up and down keys along with j/k
+  helpModalClass: 'jquery-chaves-help'  # the class-name used for the help modal dialog
+  linkSelector: 'a:first'               # selector targeting the link to "click" in 
+                                        #   the active element
+  searchSelector: '.search'             # selector targeting the search element
+          </code>
+        </p>
+      </div>
+      <div>
+        <p>
+          Care to contribute? Fork it, test it, hack away and submit a pull request.
+        </p>
+        <p>
+          Remember, <a href='http://twitter.com/jayroh'>I am on twitter</a> if
+          you have any questions, comments, compliments, insults 
+          <small>(why would you do that?)</small>, or have suggestions.
+        </p>
+      </div>
     </article>
   </section>
 
   <a href="https://github.com/jayroh/chaves.js/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
-  <script type='text/javascript' src='../lib/jquery-1.7.2.js'></script>
+  <script type='text/javascript' src='../lib/jquery-1.8.1.js'></script>
   <script type='text/javascript' src='../lib/keymaster.js'></script>
   <script type='text/javascript' src='../src/jquery.chaves.js'></script>
   <script>
@@ -68,7 +72,7 @@ searchSelector: '.search'             # selector targeting the search element
         ['p', 'Alert p!', function(){ alert('You pressed p!'); }]
       ],
       className: 'keys',
-      childSelector: '> *',
+      childSelector: 'p',
       enableUpDown: true,
       searchSelector: '#q'
     });

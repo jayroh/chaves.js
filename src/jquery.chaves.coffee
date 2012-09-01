@@ -28,6 +28,7 @@ $.extend $.fn.chaves,
     @el       = $(el).addClass(options.className)
     @children = @el.find(options.childSelector)
     @active   = @children.first().addClass(options.activeClass)
+    @index    = 0
     @help     = @findOrCreateHelp()
     downkeys  = 'j'
     upkeys    = 'k'
@@ -48,15 +49,17 @@ $.extend $.fn.chaves,
     # *************************************************************************
 
     goUp = =>
-      if(@active.prev().length)
-        prev = @active.prev().addClass(@options.activeClass)
+      if(@index > 0)
+        @index = @index - 1
+        prev = $(@children[@index]).addClass(@options.activeClass)
         @active.removeClass(@options.activeClass)
         @active = prev
         @readjust(150)
 
     goDown = =>
-      if(@active.next().length)
-        next = @active.next().addClass(@options.activeClass)
+      if(@index < @children.length - 1)
+        @index = @index + 1
+        next = $(@children[@index]).addClass(@options.activeClass)
         @active.removeClass(@options.activeClass)
         @active = next
         @readjust(0)
