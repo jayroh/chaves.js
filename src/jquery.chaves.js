@@ -13,7 +13,7 @@
   });
 
   $.extend($.fn.chaves, {
-    version: '0.1.0',
+    version: '0.1.1',
     default_options: {
       activeClass: 'active',
       bindings: [],
