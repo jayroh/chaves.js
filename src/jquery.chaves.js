@@ -25,6 +25,7 @@
       scope: 'all',
       searchSelector: '.search,\
                      #search,\
+                     input[type="search"],\
                      input[type="text"][value*="earch"],\
                      input[type="text"][placeholder*="earch"]'
     },
