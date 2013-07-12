@@ -47,7 +47,7 @@
         used to fast and efficient interactions just a key-press away.
       </p>
       <p>
-        If you <strong>don't</strong> use the keyboard shortcuts available to 
+        If you <strong>don't</strong> use the keyboard shortcuts available to
         you then <a href='http://dl.dropbox.com/u/73698777/gifs/wtf%20are%20you%20doing%20cat.gif'
         target='_blank'>... well</a>.
       </p>
@@ -55,27 +55,27 @@
         There are handful of great JS libraries out there to help get your
         app sufficially shortcut'ed, but I found that there wasn't much in
         the way of a quick and flexible set of defaults with the ability to
-        further configure. <q>Convention over configuration</q>. That's a 
+        further configure. <q>Convention over configuration</q>. That's a
         thing, right?
       </p>
       <p>
         So here's my shot at this. A small jQuery plugin called "Chaves.js" that leans
-        on both jQuery and Thomas Fuch's
-        <a href='https://github.com/madrobby/keymaster'>Keymaster.js</a>.
+        on jQuery and Keith Cirkel's
+        <a href='https://github.com/keithamus/jwerty'>jwerty</a>.
       </p>
       <p>
-        The element you call "chaves()" against will allow you to navigate its 
-        direct children, setting an 'active' class on the current child, with 
-        the <em>"j"</em> and <em>"k"</em> keys -- optionally with the up and 
-        down keys. <em>"Enter"</em> will click on the first anchor tag. The 
-        <em>"/"</em> key will focus on a search field, if it has a commonly 
-        named id, name or placeholder value. And, finally, <em>"shift + /"</em> 
+        The element you call "chaves()" against will allow you to navigate its
+        direct children, setting an 'active' class on the current child, with
+        the <em>"j"</em> and <em>"k"</em> keys -- optionally with the up and
+        down keys. <em>"Enter"</em> will click on the first anchor tag. The
+        <em>"/"</em> key will focus on a search field, if it has a commonly
+        named id, name or placeholder value. And, finally, <em>"shift + /"</em>
         -- or more commonly <em>"?"</em> -- will display a help dialog.
       </p>
       <p>
         The help dialog is dynamically built from the registered key-bindings.
-        If you would care to, instead, build that dialog with your own markup 
-        the plugin will hook into that instead. Just create an element with a 
+        If you would care to, instead, build that dialog with your own markup
+        the plugin will hook into that instead. Just create an element with a
         class <code>'jquery-chaves-help'</code> -- or, if you pass a different
         classname in the options it will use that classname.
       </p>
@@ -85,7 +85,7 @@
       </p>
       <p>What does "chaves" mean? <a href="http://translate.google.com/#pt%7Cen%7Cchaves">It's portuguese for "keys".</a></p>
       <p>
-        You can find <a href='http://twitter.com/jayroh'>me on twitter</a> if
+        You can <a href='http://twitter.com/jayroh'>find me on twitter</a> if
         you have any questions.
       </p>
     </article>
@@ -94,7 +94,7 @@
   <a href="https://github.com/jayroh/chaves.js/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
   <script type='text/javascript' src='../lib/jquery-1.8.1.js'></script>
-  <script type='text/javascript' src='../lib/keymaster.js'></script>
+  <script type='text/javascript' src='../lib/jwerty.js'></script>
   <script type='text/javascript' src='../src/jquery.chaves.js'></script>
   <script>
     $('#stuff').chaves();

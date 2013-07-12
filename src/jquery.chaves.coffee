@@ -18,9 +18,9 @@ $.extend $.fn.chaves,
     linkSelector: 'a:first'
     scope: 'all'
     searchSelector: '.search,
-                     #search,
-                     input[type="text"][value*="earch"],
-                     input[type="text"][placeholder*="earch"]'
+      #search,
+      input[type="text"][value*="earch"],
+      input[type="text"][placeholder*="earch"]'
 
   init: (el, options) ->
     @options  = options
@@ -33,14 +33,14 @@ $.extend $.fn.chaves,
     downkeys  = 'j'
     upkeys    = 'k'
     if options.enableUpDown
-      downkeys  += ", down"
-      upkeys    += ", up"
+      downkeys  = 'arrow-down/j'
+      upkeys    = 'arrow-up/k'
 
     # *************************************************************************
 
     register_all_bindings = =>
       for binding in @bindings
-        key binding[0], @options.scope, binding[2]
+        jwerty.key binding[0], binding[2]
         addToHelp binding[0], binding[1]
 
     addToHelp = (keys, description) =>
@@ -83,12 +83,12 @@ $.extend $.fn.chaves,
 
     # *************************************************************************
 
-    @bindings.push [ upkeys,        'Move selection up.',   goUp        ]
-    @bindings.push [ downkeys,      'Move selection down.', goDown      ]
-    @bindings.push [ 'shift+/',     'Toggle help dialog.',  showHelp    ]
-    @bindings.push [ 'esc, escape', 'Close help dialog.',   hideHelp    ]
-    @bindings.push [ '/',           'Focus on search.',     searchFocus ]
-    @bindings.push [ 'enter',       'Open/click element.',  clickActive ]
+    # @bindings.push [ upkeys,       'Move selection up.',   goUp        ]
+    # @bindings.push [ downkeys,     'Move selection down.', goDown      ]
+    # @bindings.push [ 'esc/escape', 'Close help dialog.',   hideHelp    ]
+    # @bindings.push [ 'enter',      'Open/click element.',  clickActive ]
+    @bindings.push [ 'shift+/',    'Toggle help dialog.',  showHelp    ]
+    @bindings.push [ 'slash',      'Focus on search.',     searchFocus ]
 
     register_all_bindings()
 
